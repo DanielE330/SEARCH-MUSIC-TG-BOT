@@ -12,8 +12,13 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-bot = telebot.TeleBot('TOKEN_TG')
-client = Client('TOKEN_YA.MUSIC')
+TG_TOKEN = open("TG_TOKEN.txt")
+bot = telebot.TeleBot(TG_TOKEN.read())
+TG_TOKEN.close()
+
+YA_TOKEN = open("YA_TOKEN.txt")
+client = Client(YA_TOKEN.read())
+YA_TOKEN.close()
 client.init()
 
 user_search_results = {}
